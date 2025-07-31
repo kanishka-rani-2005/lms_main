@@ -10,3 +10,6 @@ class Book(models.Model):
     edition=models.SmallIntegerField()
     pages=models.IntegerField()
     price=models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return self.title
