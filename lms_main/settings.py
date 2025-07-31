@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-m7x5sde42)mxb#!3!1(e30acgk92v6-o@d)7p*ed9)elw76o9z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'Books.apps.BooksConfig',
-    'NoticeBoard.apps.NoticeboardConfig'
-
+    'NoticeBoard.apps.NoticeboardConfig',
+    'AddNotice.apps.AddnoticeConfig',
+    'EditBook.apps.EditbookConfig'
 ]
 
 MIDDLEWARE = [

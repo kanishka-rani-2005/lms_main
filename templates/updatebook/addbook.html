@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book</title>
+</head>
+<body>
+    <h2>Add Book</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Author:</label><br>
+        <input type="text" name="author" required><br><br>
+
+        <label>Publisher:</label><br>
+        <input type="text" name="publisher" required><br><br>
+
+        <label>Edition:</label><br>
+        <input type="number" name="edition" required><br><br>
+
+        <label>Price:</label><br>
+        <input type="number" name="price" step="0" required><br><br>
+
+        <label>Pages:</label><br>
+        <input type="number" name="pages" required><br><br>
+
+        <button type="submit">Add Book</button>
+    </form>
+</body>
+</html>
