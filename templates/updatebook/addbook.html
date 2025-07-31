@@ -1,32 +1,144 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <title>Add Book</title>
-</head>
-<body>
-    <h2>Add Book</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <label>Title:</label><br>
-        <input type="text" name="title" required><br><br>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #eef2f7;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        <label>Author:</label><br>
-        <input type="text" name="author" required><br><br>
+      .navbar {
+        margin-bottom: 40px;
+      }
 
-        <label>Publisher:</label><br>
-        <input type="text" name="publisher" required><br><br>
+      .form-card {
+        max-width: 500px;
+        margin: auto;
+        padding: 30px 35px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        <label>Edition:</label><br>
-        <input type="number" name="edition" required><br><br>
+      .form-card h2 {
+        margin-bottom: 25px;
+        text-align: center;
+        color: #2c3e50;
+      }
 
-        <label>Price:</label><br>
-        <input type="number" name="price" step="0" required><br><br>
+      .form-label {
+        font-weight: 500;
+        color: #333;
+      }
 
-        <label>Pages:</label><br>
-        <input type="number" name="pages" required><br><br>
+      .form-control:focus {
+        box-shadow: none;
+        border-color: #0d6efd;
+      }
 
-        <button type="submit">Add Book</button>
-    </form>
-</body>
+      .submit-btn {
+        background-color: #0d6efd;
+        color: #fff;
+        font-weight: 500;
+      }
+
+      .submit-btn:hover {
+        background-color: #0946c2;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Library Portal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/books">Books Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/editbook">Add Book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/addnotice">Add Notice</a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/notice">Notices</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="form-card mt-5">
+        <h2>Add New Book</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Author</label>
+            <input type="text" name="author" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Publisher</label>
+            <input type="text" name="publisher" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Edition</label>
+            <input type="number" name="edition" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input
+              type="number"
+              name="price"
+              step="0.01"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Pages</label>
+            <input type="number" name="pages" class="form-control" required />
+          </div>
+
+          <button type="submit" class="btn submit-btn w-100">Add Book</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

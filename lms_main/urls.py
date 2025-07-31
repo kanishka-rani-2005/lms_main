@@ -22,6 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('Books.urls')),
     path('notice/', include('NoticeBoard.urls')),
-    path('editbook/',include('EditBook.urls'))
-
+    path('editbook/',include('EditBook.urls')),
+    path('addnotice/',include('AddNotice.urls'))
 ]
