@@ -1,24 +1,75 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Notice Board Details</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <h1>Check NoticeBoard Details</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Notices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            padding: 40px;
+            color: #2c3e50;
+        }
 
-        <script src="" async defer></script>
-    </body>
+        h1, h3 {
+            text-align: center;
+        }
+
+        .notice-container {
+            width: 85%;
+            margin: 20px auto;
+        }
+
+        .notice-card {
+            background-color: #ffffff;
+            border-left: 6px solid #3498db;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        .notice-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        .notice-details {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .no-notice {
+            text-align: center;
+            color: #e74c3c;
+            font-size: 18px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Library Notices</h1>
+
+    {% if notices %}
+        <div class="notice-container">
+            {% for notice in notices %}
+                <div class="notice-card">
+                    <div class="notice-title">{{ notice.title }}</div>
+                    <div class="notice-details">{{ notice.details }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-notice">
+            <h3>No Notices Available</h3>
+        </div>
+    {% endif %}
+
+</body>
 </html>
